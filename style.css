@@ -7,4 +7,11 @@
     float: left;
 }
 
-li:nth-child(even) {background: #DDD}
+li:nth-child(even) {
+    background: #DDD
+}
+
+
+.username:hover {
+    text-decoration: underline;
+}

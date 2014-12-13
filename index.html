@@ -7,7 +7,7 @@
   </head>
   <body>
     <ul class='stream'></ul>
-    <div class='user'>PLACEHOLDER</div>
+    <div class='user'>Click on a username</div>
     <script>
       var refreshStream = function() {
         var $stream = $('.stream');
@@ -25,6 +25,27 @@
         }
 
         $stream.html(fragment);
+        $('.username').click(usernameSelected);
+      };
+
+      var usernameSelected = function(event) {
+        var username = $(event.target).text().slice(1);
+        var user = streams.users[username];
+        var $user = $('.user');
+        var fragment = document.createDocumentFragment();
+        var index = user.length - 1;
+
+        while (index >= 0) {
+            var tweet = user[index];
+            var $tweet = $('<li></li>');
+            $tweet.html('<span class="username">' +'@' + tweet.user + '</span>' +
+              '<span class="timestamp">' + ' *' + tweet.created_at + '</span>' +
+              '<br>' + '<span class="message">' + tweet.message) + '</span>';
+            $tweet.appendTo(fragment);
+            index -= 1;
+          }
+
+          $user.html(fragment);
       };
 
       $(document).ready(function(){
