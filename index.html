@@ -12,7 +12,7 @@
         var $stream = $('.stream');
         var fragment = document.createDocumentFragment();
         var index = streams.home.length - 1;
-        console.log('in refresh');
+
         while (index >= 0) {
           var tweet = streams.home[index];
           var $tweet = $('<li></li>');
@@ -23,11 +23,12 @@
           index -= 1;
         }
 
-        $stream.replaceWith(fragment);
+        $stream.html(fragment);
       };
 
       $(document).ready(function(){
-        var streamInterval = setInterval(refreshStream, 1000);
+        refreshStream();
+        var streamInterval = setInterval(refreshStream, 1000*10);
       });
 
     </script>
