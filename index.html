@@ -16,7 +16,9 @@
         while (index >= 0) {
           var tweet = streams.home[index];
           var $tweet = $('<li></li>');
-          $tweet.text('@' + tweet.user + ' *' + 'tweet.created_at' + '\n' + tweet.message);
+          $tweet.text('@' + tweet.user + ' *' + tweet.created_at)
+            .append('<br>')
+            .append(tweet.message);
           $tweet.appendTo(fragment);
           index -= 1;
         }
@@ -25,7 +27,7 @@
       };
 
       $(document).ready(function(){
-        refreshStream();
+        var streamInterval = setInterval(refreshStream, 1000);
       });
 
     </script>
