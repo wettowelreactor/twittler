@@ -6,3 +6,5 @@
 .user {
     float: left;
 }
+
+li:nth-child(even) {background: #DDD}
