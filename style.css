@@ -1,10 +1,11 @@
 .stream {
-    width: 50%;
+    width: 40%;
     float: left;
 }
 
 .user {
-    float: left;
+    float: right;
+    width: 40%;
 }
 
 li:nth-child(even) {
