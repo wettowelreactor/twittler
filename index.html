@@ -5,23 +5,27 @@
     <script src="data_generator.js"></script>
   </head>
   <body>
-    <div class='stream'></div>
+    <ul class='stream'></ul>
     <div class='user'></div>
     <script>
-
-      $(document).ready(function(){
+      var refreshStream = function() {
         var $stream = $('.stream');
-        $stream.html('');
-
+        var fragment = document.createDocumentFragment();
         var index = streams.home.length - 1;
-        while(index >= 0){
+        console.log('in refresh');
+        while (index >= 0) {
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($stream);
+          var $tweet = $('<li></li>');
+          $tweet.text('@' + tweet.user + ' *' + 'tweet.created_at' + '\n' + tweet.message);
+          $tweet.appendTo(fragment);
           index -= 1;
         }
 
+        $stream.replaceWith(fragment);
+      };
+
+      $(document).ready(function(){
+        refreshStream();
       });
 
     </script>
