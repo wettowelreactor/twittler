@@ -37,16 +37,16 @@
         var index = user.length - 1;
 
         while (index >= 0) {
-            var tweet = user[index];
-            var $tweet = $('<li></li>');
-            $tweet.html('<span class="username">' +'@' + tweet.user + '</span>' +
-              ' *' + moment(tweet.created_at).fromNow() +
-              '<br>' + tweet.message);
-            $tweet.appendTo(fragment);
-            index -= 1;
-          }
+          var tweet = user[index];
+          var $tweet = $('<li></li>');
+          $tweet.html('<span class="username">' +'@' + tweet.user + '</span>' +
+            ' *' + moment(tweet.created_at).fromNow() +
+            '<br>' + tweet.message);
+          $tweet.appendTo(fragment);
+          index -= 1;
+        }
 
-          $user.html(fragment);
+        $user.html(fragment);
       };
 
       $(document).ready(function(){
