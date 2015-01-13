@@ -6,7 +6,7 @@ var refreshStream = function() {
   while (index >= 0) {
     var tweet = streams.home[index];
     var $tweet = $('<li></li>');
-    $tweet.html('<span class="username">' +'@' + tweet.user + '</span>' +
+    $tweet.html('<span class="username panel">' +'@' + tweet.user + '</span>' +
       ' *' + moment(tweet.created_at).fromNow() +
       '<br>' + tweet.message);
     $tweet.appendTo(fragment);
@@ -27,7 +27,7 @@ var usernameSelected = function(event) {
   while (index >= 0) {
     var tweet = user[index];
     var $tweet = $('<li></li>');
-    $tweet.html('<span class="username">' +'@' + tweet.user + '</span>' +
+    $tweet.html('<span class="username panel">' +'@' + tweet.user + '</span>' +
       ' *' + moment(tweet.created_at).fromNow() +
       '<br>' + tweet.message);
     $tweet.appendTo(fragment);
